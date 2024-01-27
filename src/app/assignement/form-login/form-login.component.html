@@ -1,0 +1,26 @@
+<!-- <button (click)="redirectToLogin()">Connect</button>-->
+
+<div class="login-form">
+    <h2>Formulaire de Connexion</h2>
+    <form #loginForm="ngForm" (ngSubmit)="submitForm(); loginForm.resetForm()">
+        <mat-form-field>
+        <mat-label>Username:</mat-label>
+        <input matInput  [(ngModel)]="username" placeholder="Username" name="Username">
+     </mat-form-field>
+
+        <mat-form-field><mat-label>Password:</mat-label>
+        <input matInput  [(ngModel)]="password" placeholder="Password" name="password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select Role:</mat-label>
+            <mat-select [(ngModel)]="selectedRole" name="role">
+              <mat-option value="admin">Admin</mat-option>
+              <mat-option value="user">User</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+          <div>
+            <button type="submit" mat-flat-button color="primary">Submit</button>
+          </div>
+    </form>
+</div>

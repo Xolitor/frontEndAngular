@@ -1,0 +1,31 @@
+
+<mat-toolbar style="background-color: cadetblue;">
+  <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon><h4>Side Bar</h4></button>
+  <nav><a routerLink="/home"><button mat-button><mat-icon>home</mat-icon></button></a></nav>
+  <nav><a routerLink="/login"><button mat-button><mat-icon>account_box</mat-icon></button></a></nav>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item class="mat-list-item"><nav routerLink="/home">Liste des devoirs</nav></mat-list-item>
+      <mat-list-item class="mat-list-item"><nav routerLink="/add">Ajout d'un devoir</nav></mat-list-item>
+      <mat-list-item class="mat-list-item"><nav routerLink='assignment/:id/edit'>Modification d'un devoir</nav></mat-list-item>
+      <mat-list-item class="mat-list-item"><nav routerLink='assignment/:id/'>Suppression d'un devoir</nav></mat-list-item> 
+      <mat-list-item class="mat-list-item"><a>Génération de données de test</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  <div class="container">
+    <H1>
+      <nav routerLink="/home">{{titre}}</nav>
+    </H1>
+    <!--<mat-slide-toggle color="primary">Login</mat-slide-toggle>-->
+  </div>
+
+  <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--click)="login()"  -->
+
