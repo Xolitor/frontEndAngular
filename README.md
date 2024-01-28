@@ -1,27 +1,33 @@
-# Demoapp
+Voici notre projet Angular hébergé sur Heroku.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+Détail du travail realisé:
 
-## Development server
+1. Ajout d'une gestion de login/password
+  - Un toolbar avec une icone pour se login en haut a droite
+  - une icone pour se deconnecter en haut a droite
+  - si on est loggué en tant que user on a le droit de modifier et ajouter des assignments
+  - si non loggué on peut que consulter les assignments
+  - une liste de login/passwords sont codés en dur dans auth.service.ts:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  private users: { username: string; password: string; role: string }[] = [
+    { username: 'user1', password: 'password1', role: 'user' },
+    { username: 'admin1', password: 'adminpassword1', role: 'admin' }
+  ];
 
-## Code scaffolding
+2. Ajouter de nouvelles propriétés au modèle des Assignments
+   - On a ajouté auteur, Matiere, Note sur 20, remarques
+   - Un devoir ne peut pas etre rendu si la note est egal a 0 dans notre cas (equivalent de non rendu dans notre code)
+   - SEUL les admins peuvent créent un assignment avec une note et des remarques
+   - On a PAS ajouté les images associé aux matières
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Améliorer l'affichage des Assignments
+   - Les assignments apparaissent dans une table angular material
+   - Avec Datasource
+   - La vue permet de voir les remarques, la note mais PAS les photos
+  
+On a essaye de rendre le tout plus joli
 
-## Build
+On a hébergé sur Heroku.com
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Plusieurs fonctionnalités ne sont pas implementés car nous avons mal géré notre temps.
+   
