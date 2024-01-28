@@ -45,6 +45,7 @@ export class AssignmentsComponent implements OnInit {
     return this.authService.loggedIn;
   }
 
+  
 
   private loadData() {
     this.assignmentService.getAssignments().subscribe((data) => {
