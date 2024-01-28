@@ -1,5 +1,5 @@
-<main class= "container">
-    <nav><a routerLink="/login"><button mat-flat-button color="warn">Connecter</button></a></nav>
+<main>
+    <!-- <nav><a routerLink="/login"><button mat-flat-button color="warn">Connecter</button></a></nav> -->
     <nav><a routerLink="/add">
         <button class= "ajouterBtn" *ngIf="linkEnabled()" mat-flat-button color="accent">
          Ajouter devoir
@@ -7,7 +7,7 @@
     </a></nav>
 
 
-<mat-list *ngFor="let assignment of assignments">
+<!-- <mat-list *ngFor="let assignment of assignments">
         <nav *ngIf="linkEnabled()" routerLink="/assignment/{{assignment.id}}">
             <h3 mat-subheader>{{assignment.dateDeRendu | date}}</h3>
             <mat-list-item >
@@ -22,7 +22,47 @@
             </div>
             </mat-list-item> 
         </nav>
-</mat-list>
+</mat-list> -->
+
+
+<div class="mat-table-container">
+<mat-table [dataSource]="dataSource" class="custom-mat-table">
+
+    <ng-container matColumnDef="Nom">
+      <th mat-header-cell *matHeaderCellDef>Nom du devoir</th>
+      <td mat-cell *matCellDef="let assignment">{{ assignment.nom }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let assignment">{{ assignment.id }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Date de Rendu">
+      <th mat-header-cell *matHeaderCellDef>Date de Rendu</th>
+      <td mat-cell *matCellDef="let assignment">{{ assignment.dateDeRendu }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Rendu">
+      <th mat-header-cell *matHeaderCellDef>Rendu</th>
+      <td mat-cell *matCellDef="let assignment">{{ assignment.rendu }}</td>
+    </ng-container>
+    
+    <!--<ng-container matColumnDef="Matiere">
+      <mat-header-cell *matHeaderCellDef>Matiere</mat-header-cell>
+      <mat-cell *matCellDef="let assignment">{{ assignment.rendu }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Auteur">
+      <mat-header-cell *matHeaderCellDef>Auteur</mat-header-cell>
+      <mat-cell *matCellDef="let assignment">{{ assignment.rendu }}</mat-cell>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="row-title"></tr>
+    <tr mat-row *matRowDef="let assignment  columns: displayedColumns" routerLink="/assignment/{{assignment.id}}" class="cell"></tr>
+
+  </mat-table>
+</div>
 
 
 <!-- <app-assignment-detail 

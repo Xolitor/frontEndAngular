@@ -1,23 +1,77 @@
 <form ngForm (submit)="onSubmit($event); assignmentForm.reset();" #assignmentForm class="form">
 
-    <mat-form-field>
-        <mat-label>Nom :</mat-label>
+    <mat-form-field class="text-font" >
+        <mat-label class="text-font">Nom :</mat-label>
         <input matInput [(ngModel)]="nomDevoir" placeholder="Nom du devoir" name="nom">
     </mat-form-field>   
- 
+    
+    <mat-form-field class="text-font">
+        <mat-label class="text-font">Auteur :</mat-label>
+        <input matInput [(ngModel)]="nomAuteur" placeholder="Nom de l'eleve" name="auteur">
+    </mat-form-field>   
 
-    <mat-form-field  appearance="fill">
-        <mat-label>Choose a date :</mat-label>
+    <!--<mat-form-field>
+        <mat-label>Matiere</mat-label>
+        <mat-select matNativeControl required [(value)]="selected">
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </mat-select>
+    </mat-form-field>-->
+
+    <mat-form-field class="text-font">
+        <mat-label class="text-font">Matiere :</mat-label>
+        <input matInput [(ngModel)]="matiere" placeholder="Matiere" name="matiere">
+    </mat-form-field>
+    
+    <mat-form-field class="text-font">
+        <mat-label class="text-font"> Note :</mat-label>
+        <input matInput [(ngModel)]="noteSur20" placeholder="Note sur 20" name="Note sur 20" [disabled]="!isAdmin()">
+    </mat-form-field>   
+
+    <mat-form-field class="text-font">
+        <mat-label class="text-font">Remarque :</mat-label>
+        <input matInput [(ngModel)]="remarque" placeholder="Remarque" name="Remarque"  [disabled]="!isAdmin()">
+    </mat-form-field>   
+    
+    <!--<mat-form-field>
+        <mat-label>Matiere</mat-label>
+        <mat-select [(ngModel)]="matiere">
+          <mat-option value="admin">Admin</mat-option>
+        <mat-option value="user">User</mat-option>
+        </mat-select>
+    </mat-form-field>-->
+
+    <!-- <mat-form-field>
+            <mat-label>Select Role:</mat-label>
+            <mat-select [(ngModel)]="selectedRole" name="role">
+              <mat-option value="admin">Admin</mat-option>
+              <mat-option value="user">User</mat-option>
+            </mat-select>
+        </mat-form-field>-->
+
+
+    <!--<mat-form-field>
+        <mat-label>Matiere</mat-label>
+        <mat-select [(ngModel)]="matiere">
+          <mat-option *ngFor="let option of  matiereOptions" [value]="option">
+            {{ option }}           
+          </mat-option>
+        </mat-select>
+    </mat-form-field>-->
+
+    <mat-form-field  appearance="fill" class="text-font">
+        <mat-label class="text-font">Choose a date :</mat-label>
         <input matInput [matDatepicker]="picker"
         [(ngModel)]="dateRendu" 
         name="date">
-        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-hint class="text-font">MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <button mat-stroked-button (click)="onSubmit($event)"
-           color="primary"     
+           color="primary"  class="text-font" 
            >
            <!-- (click)="onSubmit($event); assignmentForm.reset() "-->
            <!--[disabled]="!ajoutActive"--> 

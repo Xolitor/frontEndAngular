@@ -1,5 +1,16 @@
 .form {
     display:flex;
     flex-direction: column;
-    margin:5px;
+    padding:25px;
+    background-color: rgb(215, 59, 153); 
+    font-family: 'BlackExo2';
  }
+
+ .text-font {
+   font-family: 'BlackExo2';
+ }
+
+ @font-face {
+    font-family: 'BlackExo2';
+    src: url('../../static/Exo2-Black.ttf');
+  }

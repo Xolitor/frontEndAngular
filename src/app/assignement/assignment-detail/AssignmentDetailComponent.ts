@@ -34,6 +34,10 @@ export class AssignmentDetailComponent implements OnInit {
       this.router.navigate(["/home"]); })
   }
 
+  checkNonRendu() {
+    return this.assignmentTransmis.noteSur20 == 0;
+  }
+
   onAssignmentDelete() {
     
     this.assignmentService.deleteAssignment(this.assignmentTransmis)
@@ -52,5 +56,9 @@ export class AssignmentDetailComponent implements OnInit {
 
   isAdmin(){
     return this.authService.loggedAdmin;
+  }
+
+  isUser() {
+    return this.authService.loggedIn;
   }
 }

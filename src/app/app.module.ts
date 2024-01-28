@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 import { FormsModule } from '@angular/forms';
 import { AssignmentsComponent } from './assignement/assignement.component';
@@ -37,8 +38,7 @@ const routes: Routes = [
   {path: 'home', component:AssignmentsComponent},
   {path: 'add', component:AddAssignmentComponent},
   {path: 'assignment/:id', component:AssignmentDetailComponent},
-  {path: 'assignment/:id/edit', component:EditAssignmentComponent,
-  canActivate: [authGuard]},
+  {path: 'assignment/:id/edit', component:EditAssignmentComponent},
   {path: 'login', component:FormLoginComponent},
 ]
 @NgModule({
@@ -72,7 +72,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatSlideToggleModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [AssignmentsService],
   bootstrap: [AppComponent]

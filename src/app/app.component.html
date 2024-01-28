@@ -1,31 +1,37 @@
 
 <mat-toolbar style="background-color: cadetblue;">
-  <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon><h4>Side Bar</h4></button>
+  <button mat-button (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
   <nav><a routerLink="/home"><button mat-button><mat-icon>home</mat-icon></button></a></nav>
-  <nav><a routerLink="/login"><button mat-button><mat-icon>account_box</mat-icon></button></a></nav>
+  <div class="icon-container"><nav><a routerLink="/login"><button mat-button  *ngIf="!linkEnabled()" ><mat-icon>account_box</mat-icon></button></a></nav>
+  <nav><a routerLink="/home"><button mat-button *ngIf="linkEnabled()"(click)="logDisabled()"><mat-icon>power_settings_new</mat-icon></button></a></nav></div>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
     <mat-list>
-      <mat-list-item class="mat-list-item"><nav routerLink="/home">Liste des devoirs</nav></mat-list-item>
-      <mat-list-item class="mat-list-item"><nav routerLink="/add">Ajout d'un devoir</nav></mat-list-item>
-      <mat-list-item class="mat-list-item"><nav routerLink='assignment/:id/edit'>Modification d'un devoir</nav></mat-list-item>
-      <mat-list-item class="mat-list-item"><nav routerLink='assignment/:id/'>Suppression d'un devoir</nav></mat-list-item> 
-      <mat-list-item class="mat-list-item"><a>Génération de données de test</a></mat-list-item>
+      <mat-list-item class="mat-list-item"><nav routerLink="/home"><p class="sidenav-text">Liste des devoirs </p></nav></mat-list-item>
+      <mat-list-item class="mat-list-item" ><nav routerLink="/add"><p class="sidenav-text">Ajout d'un devoir</p></nav></mat-list-item>
+      <mat-list-item class="mat-list-item"><p class="sidenav-text">Modification d'un devoir</p></mat-list-item>
+      <mat-list-item class="mat-list-item"><p class="sidenav-text">Suppression d'un devoir</p></mat-list-item> 
+      <mat-list-item class="mat-list-item"><p class="sidenav-text">Génération de données de test</p></mat-list-item>
     </mat-list>
   </mat-sidenav>
+  
   <mat-sidenav-content>
-  <div class="container">
-    <H1>
-      <nav routerLink="/home">{{titre}}</nav>
-    </H1>
-    <!--<mat-slide-toggle color="primary">Login</mat-slide-toggle>-->
-  </div>
-
+  <div class="background-container">
+  <div >
+    <h1 class="title">
+      <nav routerLink="/home">MOODLE 2.0</nav>
+    </h1>
+  </div><div class="under-text">
   <router-outlet></router-outlet>
+  </div>
+  </div>
+  
   </mat-sidenav-content>
+ 
 </mat-sidenav-container>
+
 
 <!--click)="login()"  -->
 

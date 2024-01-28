@@ -2,34 +2,6 @@ section {
   display: table;
 }
 
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
-}
-
-.example-button-row {
-  display: table-cell;
-  max-width: 600px;
-}
-
-.example-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
-}
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
-}
-
 .mat-sidenav-container{
   height: 100vh;
 }
@@ -41,8 +13,54 @@ section {
 }
 
 .mat-list-item:hover {
-  border: 1px solid #000000;
   border-radius: 8px; 
   overflow: hidden; 
   background-color: hsl(16, 98%, 51%);
+  font-family: 'BoldExo2';
+}
+
+.sidenav-text {
+  font-family: 'BoldExo2';
+  font-size: medium; 
+  color: hsl(328, 49%, 42%) ;
+}
+
+
+.icon-container {
+  margin-left: auto;
+}
+
+
+.background-container {
+  background-image: url('background.jpg'); 
+  background-repeat: repeat;
+  background-size: cover; 
+  background-position: center;
+  height: 100vh; 
+  padding-top: 20px;
+  display: flex;
+}
+
+.title {
+  font-weight: bold;
+  color: blue;
+  font-size: xx-large;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.under-text {
+  position: absolute;
+  top: 15%; /* Adjust the top distance as needed */
+  left: 25%;
+}
+
+.title {
+  font-family: 'BoldExo2';
+}
+
+@font-face {
+  font-family: 'BoldExo2';
+  src: url('static/Exo2-Bold.ttf');
 }

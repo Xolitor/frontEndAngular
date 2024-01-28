@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Assignment } from '../assignement/assignement.model';
+import { Assignment, Matieres } from '../assignement/assignement.model';
 import {Observable, map, of, tap} from 'rxjs'
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http';
+import { bdInitialAssignments } from './data';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +34,8 @@ export class AssignmentsService {
    
   ]
 
-  //url = "http://localhost:8010/api/assignments";
-  url = "https://api-cours-angular-2023-fb404035aa48.herokuapp.com/api/assignments"
+  url = "http://localhost:8010/api/assignments";
+  //url = "https://api-cours-angular-2023-fb404035aa48.herokuapp.com/api/assignments"
 
   getAssignments():Observable<Assignment[]>{
     return this.http.get<Assignment[]>(this.url)
@@ -45,6 +46,8 @@ export class AssignmentsService {
     return this.assignments.length+1;
   }*/
 
+  
+    
   addAssignment(assignement:Assignment):Observable<any> {
     this.loggingService.log(assignement.nom, "ajouté")
     return this.http.post<Assignment>(this.url, assignement);

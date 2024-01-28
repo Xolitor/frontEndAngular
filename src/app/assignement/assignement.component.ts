@@ -3,6 +3,8 @@ import { Assignment } from './assignement.model';
 import { AssignmentsService } from '../shared/assignments.service';
 import { Observable } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
+import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-assignements',
@@ -13,7 +15,10 @@ import { AuthService } from '../shared/auth.service';
 
 export class AssignmentsComponent implements OnInit {
 
-  constructor (private assignmentService:AssignmentsService, private authService: AuthService){}
+
+  displayedColumns: string[] = ['Nom', 'ID', 'Date de Rendu', 'Rendu'];
+  dataSource: MatTableDataSource<Assignment>;
+  constructor (private assignmentService:AssignmentsService, private authService: AuthService, private router:Router){}
 
   //assignementSelectionne!:Assignment;
   //ajoutActive = false;
@@ -23,6 +28,7 @@ export class AssignmentsComponent implements OnInit {
   ngOnInit(): void {
     //this.assignments = this.assignmentService.getAssignments();
     this.getAssignments();
+    this.loadData();
     /*setTimeout(() => {
       this.ajoutActive = true;
     }, 2000);*/
@@ -37,6 +43,14 @@ export class AssignmentsComponent implements OnInit {
 
   linkEnabled() {
     return this.authService.loggedIn;
+  }
+
+
+  private loadData() {
+    this.assignmentService.getAssignments().subscribe((data) => {
+      this.assignments = data;
+      this.dataSource = new MatTableDataSource(this.assignments);
+    });
   }
 
   /*enableLink(){

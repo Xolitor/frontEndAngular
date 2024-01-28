@@ -1,0 +1,22 @@
+.login-form {
+    background-color: rgb(216, 227, 59); 
+    left: 50%;
+    margin-left: 215px;
+  }
+
+  .button-login{
+    padding: 20px;
+  }
+
+  .login-title{
+    color:hsl(252, 84%, 37%);
+    font-family: 'BlackExo2';
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  @font-face {
+    font-family: 'BlackExo2';
+    src: url('../../static/Exo2-Black.ttf');
+
+  }

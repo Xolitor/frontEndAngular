@@ -1,16 +1,23 @@
-<div class="container">
-<mat-card *ngIf="assignmentTransmis">
+<div >
+<mat-card *ngIf="assignmentTransmis" class="container">
     <mat-card-content>
-        <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
+        <mat-card-title class="style-text">{{assignmentTransmis.nom}}</mat-card-title>
+    
         <mat-card-subtitle>{{assignmentTransmis.dateDeRendu | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
-        <div id="bottom">
-            <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">Devoir rendu</mat-checkbox>
+        <mat-card-content class="style-text">
+        <p>Auteur: {{assignmentTransmis.auteur}}</p>
+        <p>Matiere: {{assignmentTransmis.matiere}}</p>
+        <p>Note:{{assignmentTransmis.noteSur20}}</p>
+        <p>Remarque:{{assignmentTransmis.remarque}}</p>
+        </mat-card-content>
+        <div class="detail-buttons">
+            <mat-checkbox *ngIf="!assignmentTransmis.rendu" [disabled]="checkNonRendu()" (click)="onAssignmentRendu()">Devoir rendu</mat-checkbox>
 
 
             <button mat-flat-button   
                 (click)="onClickEdit()"
                 color="primary"
-                [disabled]="!isAdmin()"
+                [disabled]="!isUser()"
                 >Edit
             </button>
 
@@ -18,9 +25,12 @@
             <button mat-flat-button   
                     color="warn"
                     (click)="onAssignmentDelete()"
-                    [disabled]="!isAdmin()">Delete
+                    [disabled]="!isAdmin()"
+                    class="delete-button">Delete
             </button>
         </div>
+
+        
     </mat-card-content>
 </mat-card>
 </div>

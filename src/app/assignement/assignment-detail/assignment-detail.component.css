@@ -1,5 +1,28 @@
-#bottom {
+.container {
+    background-color: #8ed735; 
+    gap: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    width: 100%;
+    max-width:  700px;
 }
+
+.detail-buttons {
+    padding:25px;
+    margin-left: 25px;
+}
+
+.delete-button {
+    display:flex;
+    margin-left: auto;
+}
+
+.style-text {
+    font-family: 'BlackExo2';
+    color:rgb(178, 58, 56);
+}
+
+@font-face {
+    font-family: 'BlackExo2';
+    src: url('../../static/Exo2-Black.ttf');
+
+  }
